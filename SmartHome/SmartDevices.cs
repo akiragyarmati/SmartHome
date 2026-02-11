@@ -11,19 +11,30 @@ namespace SmartHome
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool IsOnline { get; set; }
+        public bool IsOnline { get; private set; }
         public DateTime LastActive { get; set; }
 
         protected SmartDevice(int id, string name)
         {
             Id = id;
             Name = name;
-            IsOnline = true;
+            IsOnline = false;
             LastActive = DateTime.MinValue;
         }
 
 
         public abstract string GetStatus();
+
+        public void Connect()
+        {
+            IsOnline = true;
+            LastActive = DateTime.Now;
+        }
+
+        public void Disconnect()
+        {
+            IsOnline = false;
+        }
 
 
 
