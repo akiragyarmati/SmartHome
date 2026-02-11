@@ -31,6 +31,38 @@ namespace SmartHome
             devices.Add(device);
         }
 
+        public void RemoveDevice(int id)
+        {
+            var device = devices.FirstOrDefault(d => d.Id == id);
+
+            if (device == null)
+            {
+                throw new KeyNotFoundException($"Nincs eszköz ezzel az ID-vel: {id}");
+            }
+
+            devices.Remove(device);
+        }
+
+        public SmartDevice FindById(int id)
+        {
+            var device = devices.FirstOrDefault(d => d.Id == id);
+
+            if (device == null)
+            {
+                throw new KeyNotFoundException($"Nincs eszköz ezzel az ID-vel: {id}");
+            }
+
+            return device;
+        }
+
+        public void ListAllDevices()
+        {
+            Console.WriteLine("Eszközök:");
+            foreach (var device in devices)
+            {
+                Console.WriteLine(device.ToString());
+            }
+        }
 
 
 
