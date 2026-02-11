@@ -110,4 +110,24 @@ namespace SmartHome
             return $"Hőmérséklet: {CurrentTemperature} fok, (Cél: {TargetTemperature} fok) -> {active}";
         }
     }
+
+
+
+    public class SmartBlind : SmartDevice
+    { 
+        public int OpenPercentage { get; private set; }
+
+        public SmartBlind(int id, string name) : base(id, name)
+        {
+            OpenPercentage = 100;
+        }
+
+
+
+
+        public override string GetStatus()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
