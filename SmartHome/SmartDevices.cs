@@ -46,7 +46,7 @@ namespace SmartHome
 
         public override string? ToString()
         {
-            return $"Device ID: {Id}, Name: {Name}, Online: {IsOnline}, Last Active: {LastActive}";
+            return $"ID: {Id}, Név: {Name}, Online: {IsOnline}, Utoljára aktív: {LastActive}";
         }
     }
 }

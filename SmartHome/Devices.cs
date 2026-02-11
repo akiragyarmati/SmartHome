@@ -113,21 +113,81 @@ namespace SmartHome
 
 
 
-    public class SmartBlind : SmartDevice
+    public class SmartBlinds : SmartDevice
     { 
         public int OpenPercentage { get; private set; }
 
-        public SmartBlind(int id, string name) : base(id, name)
+        public SmartBlinds(int id, string name) : base(id, name)
         {
             OpenPercentage = 100;
         }
 
+        public void SetLevel(int percentage)
+        {
+            if (!IsOnline) return;
 
+            if (percentage < 0) percentage = 0;
+            if (percentage > 100) percentage = 100;
 
+            OpenPercentage = percentage;
+            LastActive = DateTime.Now;
+        
+        }
 
         public override string GetStatus()
         {
-            throw new NotImplementedException();
+            return $"Redőny állása: {OpenPercentage}%";
         }
     }
+
+    public class MusicHub : SmartDevice, ISwitchable
+    { 
+        //Tömbbegyűjetni a zenéket, mint memória, max. 5 szám
+
+        public int Volume { get; private set; }
+        public Song? CurrentSong { get; private set; }
+
+        public MusicHub(int id, string name) : base(id, name)
+        { 
+            
+        }
+
+        public void TurnOn()
+        { 
+            if (!IsOnline) return;
+            Console.WriteLine($"{Name} Bekapcsolva");
+        }
+
+        public void TurnOff()
+        { 
+            CurrentSong = null;
+        }
+
+        public void PlayMusic(Song song)
+        {
+            if (!IsOnline) return;
+
+            CurrentSong = song;
+            LastActive = DateTime.Now;
+            Console.WriteLine(CurrentSong.ToString);
+
+        }
+
+        public void SetVolume(int vol)
+        {
+            if (vol < 0) vol = 0;
+            if (vol > 100) vol = 100;
+            Volume = vol;
+        }
+
+        public override string GetStatus()
+        {
+            string songInfo = CurrentSong != null ? CurrentSong.ToString() : "---";
+            return songInfo;
+
+        }
+
+    }
+
+
 }
