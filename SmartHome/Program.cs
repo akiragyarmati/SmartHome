@@ -27,6 +27,19 @@
                 furdoszobaThermo.SetTargetTemperature(24.0);
                 Console.WriteLine(furdoszobaThermo.GetStatus());
 
+                SmartBlinds redony = new SmartBlinds(3, "Hálószoba redőny");
+                redony.Connect();
+                manager.AddDevice(redony);
+                redony.SetLevel(60);
+
+                MusicHub hangszoro = new MusicHub(4, "Nappali Hnagszóró");
+                hangszoro.Connect();
+                manager.AddDevice(hangszoro);
+
+                Song zene = new Song("ahogy elképzeltem", "30Y", 3.5);
+
+                hangszoro.PlayMusic(zene);
+
                 manager.ListAllDevices();
 
 
@@ -35,6 +48,7 @@
             {
                 Console.WriteLine($"Hiba történt: {ex.Message}");
             }
+
 
 
         }
