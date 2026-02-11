@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartHome
 {
+    //Lámpa
     public class SmartLight : SmartDevice, ISwitchable
     {
         public int Brightness { get; set; }
@@ -48,7 +49,7 @@ namespace SmartHome
 
     }
 
-
+    //Termosztát
     public class SmartThermostat : SmartDevice, ISensor
     {
         public double CurrentTemperature { get; private set; }
