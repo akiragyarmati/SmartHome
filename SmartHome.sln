@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36804.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHome", "SmartHome\SmartHome.csproj", "{3337B8E4-1550-48F7-B0A0-B9EB81009D25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHome_Tests", "SmartHome_Tests\SmartHome_Tests.csproj", "{198E15B0-A516-4337-8250-CD77F4412A9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3337B8E4-1550-48F7-B0A0-B9EB81009D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3337B8E4-1550-48F7-B0A0-B9EB81009D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3337B8E4-1550-48F7-B0A0-B9EB81009D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198E15B0-A516-4337-8250-CD77F4412A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198E15B0-A516-4337-8250-CD77F4412A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198E15B0-A516-4337-8250-CD77F4412A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198E15B0-A516-4337-8250-CD77F4412A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
