@@ -51,7 +51,7 @@ namespace SmartHome
     }
 
     //Termosztát
-    [DeviceCategory("Termosztát", 3)]
+    [DeviceCategory("Fűtés", 3)]
     public class SmartThermostat : SmartDevice, ISensor
     {
         public double CurrentTemperature { get; private set; }
@@ -115,7 +115,7 @@ namespace SmartHome
 
 
 
-    [DeviceCategory("Redőny", 2)]
+    [DeviceCategory("Sötétítés", 2)]
     public class SmartBlinds : SmartDevice
     { 
         public int OpenPercentage { get; private set; }
@@ -146,8 +146,7 @@ namespace SmartHome
     [DeviceCategory("Zene", 1)]
     public class MusicHub : SmartDevice, ISwitchable
     { 
-        //Tömbbegyűjetni a zenéket, mint memória, max. 5 szám
-
+        //Később tömbbegyűjetni a zenéket, mint memória, max. 5 szám
         public int Volume { get; private set; }
         public Song? CurrentSong { get; private set; }
 
