@@ -11,7 +11,7 @@ namespace SmartHome
 
     public class SystemLogger
     {
-        public LogEventHandler LogEvent;
+        public event LogEventHandler LogEvent;
         public void Log(string message) 
         { 
             LogEvent?.Invoke($"[{DateTime.Now}] {message}");
