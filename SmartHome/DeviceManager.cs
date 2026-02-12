@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartHome
+﻿namespace SmartHome
 {
     public class DeviceManager
     {
         private List<SmartDevice> devices;
 
         public DeviceManager()
-        { 
+        {
             devices = new List<SmartDevice>();
         }
 
         public void AddDevice(SmartDevice device)
         {
-            
+
             if (device == null)
             {
                 throw new ArgumentNullException(nameof(device), "Adja meg az eszközt");
@@ -64,8 +58,26 @@ namespace SmartHome
             }
         }
 
-      
 
+        public void ShowDeviceCapabilities(SmartDevice device)
+        { 
+            if (device == null) 
+            { 
+                throw new ArgumentNullException(nameof(device), "Adja meg az eszközt"); 
+            
+            } 
+
+            Console.WriteLine($"Eszköz: {device.Name} (ID: {device.Id})");
+            Console.WriteLine($"Online állapot: {(device.IsOnline ? "Online" : "Offline")}");
+            Console.WriteLine($"Utolsó aktivitás: {device.LastActive}");
+
+            Console.WriteLine("Elérhető funkciók:");
+            foreach (var method in device.GetType().GetMethods().Where(m => m.DeclaringType == device.GetType())) 
+            { 
+                Console.WriteLine($"- {method.Name}"); 
+            }
+
+        }
 
     }
 }
