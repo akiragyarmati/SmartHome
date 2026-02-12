@@ -35,6 +35,7 @@ namespace SmartHome
             { 
                 Console.WriteLine($"Hiba a naplófájl írásakor: {ex.Message}"); 
             } 
+
         }
 
 
